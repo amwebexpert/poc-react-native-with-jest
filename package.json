@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "react": "17.0.1",
-    "react-native": "0.64.0"
+    "react-native": "0.64.0",
+    "react-native-paper": "^4.7.2",
+    "react-native-vector-icons": "^8.1.0",
+    "react-native-webview": "^11.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",
@@ -39,6 +42,9 @@
       "jsx",
       "json",
       "node"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@react-native|react-native|react-native-iphone-x-helper)/)"
     ]
   }
 }
