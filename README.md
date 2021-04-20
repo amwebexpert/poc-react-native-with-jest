@@ -16,3 +16,8 @@
 # Running unit tests
 
 - `npm run test`
+
+References:
+
+* https://stackoverflow.com/questions/50388367/jest-transformignorepatterns-all-node-modules-for-react-native-preset
+
