@@ -4,11 +4,12 @@ import App from '../App';
 
 it('renders correctly', async () => {
     // given
-    const { getByText } = render(<App />);
+    const { getByText, toJSON } = render(<App />);
 
     // when
     const welcome = getByText("Welcome to unit tested app!");
 
     // then
     expect(welcome).toBeDefined();
+    expect(toJSON()).toMatchSnapshot();
 });
