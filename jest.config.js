@@ -14,5 +14,8 @@ module.exports = {
     },
     transformIgnorePatterns: [
         "node_modules/(?!(@react-native|react-native|react-native-iphone-x-helper)/)"
+    ],
+    setupFilesAfterEnv: [
+        "@testing-library/jest-native/extend-expect"
     ]
 };
