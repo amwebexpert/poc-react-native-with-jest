@@ -3,9 +3,16 @@
 * Jest
 * Testing library
 
-# Instructions
+# Setup instructions
 
 - `npm install`
 - `pod install --project-directory=ios`
+
+# Execution instructions
+
 - `npx react-native run-android`
 - `npx react-native start`
+
+# Running unit tests
+
+- `npm run test`
