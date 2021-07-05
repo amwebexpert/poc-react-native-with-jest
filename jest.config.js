@@ -13,9 +13,12 @@ module.exports = {
         '^.+\\.ts?$': 'ts-jest',
     },
     transformIgnorePatterns: [
-        "node_modules/(?!(@react-native|react-native|react-native-iphone-x-helper)/)"
+        "node_modules/(?!(@react-native|react-native|react-native-iphone-x-helper|@react-navigation)/)"
     ],
     setupFilesAfterEnv: [
         "@testing-library/jest-native/extend-expect"
+    ],
+    setupFiles: [
+        "./node_modules/react-native-gesture-handler/jestSetup.js"
     ]
 };

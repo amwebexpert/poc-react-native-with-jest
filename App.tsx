@@ -1,6 +1,9 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-import { DefaultTheme, Provider as PaperProvider, Title, useTheme } from 'react-native-paper';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { Button, DefaultTheme, Provider as PaperProvider, Text, Title, useTheme } from 'react-native-paper';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 const theme = {
   ...DefaultTheme,
@@ -11,17 +14,44 @@ const theme = {
   },
 };
 
+const Stack = createStackNavigator();
+
 const App = () => {
   const theme = useTheme();
 
   return (
     <PaperProvider theme={theme}>
-      <SafeAreaView style={styles.container}>
-        <Title style={styles.title}>Welcome to unit tested app!</Title>
-      </SafeAreaView>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Overview' }} />
+          <Stack.Screen name="Details" component={DetailsScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </PaperProvider>
   );
 };
+
+function HomeScreen() {
+  const navigation = useNavigation();
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <Title style={styles.title}>Welcome to unit tested app!</Title>
+      <Button mode="contained" onPress={() => navigation.navigate('Details')}>Go to Details</Button>
+    </SafeAreaView>
+  );
+}
+
+function DetailsScreen() {
+  const navigation = useNavigation();
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+      <Button mode="contained" onPress={() => navigation.goBack()}>Go back</Button>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
